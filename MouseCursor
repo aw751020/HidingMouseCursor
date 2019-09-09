@@ -1,0 +1,21 @@
+% Display only
+%If you don't plan to use a touch screen, the solution is to use unclutter, which is a tool, that hides the cursor after some idle time.
+
+---------------------------------------------
+sudo apt-get install unclutter
+---------------------------------------------
+
+Touch screen
+If you use touch screen to interact with you device, you probably don't want to see the mouse cursor appearing under your finger every time you touch the screen, so the answer here is to disable the mouse pointer alltogether. Just be sure your display is properly configured. (The 7" Raspberry Pi Display works pretty much out of the box)
+
+In this case, instead of using unclutter, we simply edit the lightdm.conf file.
+
+---------------------------------------------
+sudo nano /etc/lightdm/lightdm.conf
+---------------------------------------------
+
+Uncomment the xserver-command line under [SeatDefaults] (below the documentation) and add -nocursor parameter.
+
+---------------------------------------------
+xserver-command=X -nocursor
+---------------------------------------------
